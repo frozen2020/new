@@ -1,0 +1,9 @@
+-z -q -c -m"./Debug/laserdrvr.map" -o"./Debug/laserdrvr.out" -x -i"C:/CCStudio_v3.3/c2400/cgtools/lib" -v2
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\actions.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\CVECTORS.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\ISR.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\RS232.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\yucojca.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\Debug\YucoSupport.obj"
+"C:\Ti2000\ALL\A14_4302_rs232\rts2xx.lib"
+"C:\Ti2000\ALL\A14_4302_rs232\TEST.CMD"

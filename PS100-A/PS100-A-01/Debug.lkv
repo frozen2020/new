@@ -1,0 +1,9 @@
+-z -q -c -m"./Debug/laserdrvr.map" -o"./Debug/laserdrvr.out" -x -i"C:/ti2000/c2400/cgtools/lib" -v2
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\actions.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\CVECTORS.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\ISR.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\RS232.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\yucojca.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\Debug\YucoSupport.obj"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\rts2xx.lib"
+"E:\Coffey\150K_PWM_rs232(UV100_A7(A2))_zhj_fl_aq\TEST.CMD"

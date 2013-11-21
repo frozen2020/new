@@ -1,0 +1,87 @@
+/********************************************************************/
+/* Code Composer Studio supports five reserved GEL functions that   */
+/* automatically get executed if they are defined. They are:        */
+/*                                                                  */
+/* StartUp()              - Executed whenever CCS is invoked        */
+/* OnReset()              - Executed after Debug->Reset CPU         */
+/* OnRestart()            - Executed after Debug->Restart           */
+/* OnPreFileLoaded()      - Executed before File->Load Program      */
+/* OnFileLoaded()         - Executed after File->Load Program       */
+/*                                                                  */
+/********************************************************************/
+
+StartUp()
+{
+    /* Initialize F2407 memory map */
+    F2407_Memory_Map();
+}
+
+/* uncomment the function(s) you want Code Composer Studio to execute
+OnReset(int nErrorCode)
+{
+}
+
+OnRestart(int nErrorCode)
+{
+}
+
+OnPreFileLoaded()
+{
+}
+
+OnFileLoaded(int nErrorCode, int bSymbolsOnly)
+{
+}
+*/
+
+menuitem "Initialize Memory Map";
+
+/*----------------------- F2407 Memory Map -------------------------*/
+/*                                                                  */
+/*   The entire LF2407 address space (program, data, IO) is mapped  */
+/*   as RAM with two exceptions. The on-chip flash is mapped as     */
+/*   ROM and the following illegal/reserved sections are not        */
+/*   mapped:                                                        */
+/*                                                                  */
+/*   Illegal/Rsvd Program    Illegal/Rsvd Data    Illegal/Rsvd IO   */
+/*   --------------------    -----------------    ---------------   */
+/*   None                    0x0080 - 0x01ff      None              */
+/*                           0x0400 - 0x07ff                        */
+/*                           0x1000 - 0x6fff                        */
+/*------------------------------------------------------------------*/
+hotmenu F2407_Memory_Map()
+{
+    int SCSR2 =*0x7019;     /* System Control and Status Register 2 */
+    GEL_MapReset();
+    GEL_MapOn();
+ 
+    /* Check MPNMC value (SCSR2 bit 2) to determine map setting.    */
+    if(SCSR2 & 4)
+        GEL_MapAdd(0x0000,0,0x8000,1,1);    /* Ext prog memory      */
+    else
+        GEL_MapAdd(0x0000,0,0x8000,1,0);    /* On-chip flash memory */
+
+    /* Program Memory Maps */
+    GEL_MapAdd(0x8000,0,0x0800,1,1);        /* SARAM                */
+    GEL_MapAdd(0x8800,0,0x7800,1,1);        /* External RAM         */
+
+    /* Data Memory Maps */
+    GEL_MapAdd(0x0000,1,0x0060,1,1);        /* Mem mapped regs      */
+    GEL_MapAdd(0x0060,1,0x0020,1,1);        /* DARAM B2             */
+    GEL_MapAdd(0x0200,1,0x0200,1,1);        /* DARAM B0 & B1        */
+    GEL_MapAdd(0x0800,1,0x0800,1,1);        /* SARAM                */
+    GEL_MapAdd(0x7000,1,0x1000,1,1);        /* Peripherals          */
+    GEL_MapAdd(0x8000,1,0x8000,1,1);        /* External RAM         */
+
+   /* I/O Memory Maps */
+    GEL_MapAdd(0x0000,2,0x10000,1,1);
+}
+
+menuitem "Watchdog";
+hotmenu Disable_WD()
+{
+    /* Enable WD override */
+    *0x7029 = *0x7029 | 0x0068;
+    *0x7025 = 0x0055; 
+    *0x7025 = 0x00AA;
+}

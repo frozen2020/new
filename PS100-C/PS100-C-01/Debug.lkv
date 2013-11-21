@@ -1,0 +1,9 @@
+-z -q -c -m"./Debug/laserdrvr.map" -o"./Debug/laserdrvr.out" -x -i"C:/ti2000/c2400/cgtools/lib" -v2
+"E:\Coffey\UV100_A8(A2)_nL\Debug\actions.obj"
+"E:\Coffey\UV100_A8(A2)_nL\Debug\CVECTORS.obj"
+"E:\Coffey\UV100_A8(A2)_nL\Debug\ISR.obj"
+"E:\Coffey\UV100_A8(A2)_nL\Debug\RS232.obj"
+"E:\Coffey\UV100_A8(A2)_nL\Debug\yucojca.obj"
+"E:\Coffey\UV100_A8(A2)_nL\Debug\YucoSupport.obj"
+"E:\Coffey\UV100_A8(A2)_nL\rts2xx.lib"
+"E:\Coffey\UV100_A8(A2)_nL\TEST.CMD"
